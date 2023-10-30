@@ -1,0 +1,8 @@
+prefix=/home/jackmccann/fetch_ws/devel
+
+Name: turtlebot3_description_pkg
+Description: Description of turtlebot3_description_pkg
+Version: 1.2.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: urdf xacro

@@ -1,0 +1,8 @@
+prefix=/home/jackmccann/fetch_ws/install
+
+Name: follow_path
+Description: Description of follow_path
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

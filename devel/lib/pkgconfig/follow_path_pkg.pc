@@ -1,0 +1,8 @@
+prefix=/home/jackmccann/fetch_ws/devel
+
+Name: follow_path_pkg
+Description: Description of follow_path_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
