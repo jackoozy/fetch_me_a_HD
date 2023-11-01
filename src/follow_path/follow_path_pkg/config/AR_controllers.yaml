@@ -1,0 +1,17 @@
+base_controller:
+  autostart: true
+
+gazebo:
+  default_controllers:
+    - "base_controller"
+  base_joint:
+    position:
+      p: 0.0
+      d: 0.0
+      i: 0.0
+      i_clamp: 0.0
+    velocity:
+      p: 8.85
+      d: 0.0
+      i: 0.5
+      i_clamp: 6.0

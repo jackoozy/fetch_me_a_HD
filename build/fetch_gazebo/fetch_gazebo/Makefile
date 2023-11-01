@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -79,16 +91,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -112,18 +114,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -134,6 +124,16 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -273,96 +273,6 @@ robot_controllers_msgs_generate_messages_lisp/fast:
 .PHONY : robot_controllers_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
-.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_cpp: fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : control_msgs_generate_messages_cpp
-
-# fast build rule for target.
-control_msgs_generate_messages_cpp/fast:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_cpp.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_cpp.dir/build
-.PHONY : control_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_eus.dir/rule:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_eus: fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-
-.PHONY : control_msgs_generate_messages_eus
-
-# fast build rule for target.
-control_msgs_generate_messages_eus/fast:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_eus.dir/build
-.PHONY : control_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_lisp: fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : control_msgs_generate_messages_lisp
-
-# fast build rule for target.
-control_msgs_generate_messages_lisp/fast:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_lisp.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_lisp.dir/build
-.PHONY : control_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule
-.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule
-
-# Convenience name for target.
-fetch_gazebo_plugin: fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule
-
-.PHONY : fetch_gazebo_plugin
-
-# fast build rule for target.
-fetch_gazebo_plugin/fast:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/build
-.PHONY : fetch_gazebo_plugin/fast
-
-# Convenience name for target.
-fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_nodejs: fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : control_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-control_msgs_generate_messages_nodejs/fast:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
-.PHONY : control_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule
-.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-robot_controllers_msgs_generate_messages_nodejs: fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : robot_controllers_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-robot_controllers_msgs_generate_messages_nodejs/fast:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/build
-.PHONY : robot_controllers_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
 fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_eus.dir/rule:
 	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_eus.dir/rule
 .PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_eus.dir/rule
@@ -378,19 +288,19 @@ robot_controllers_msgs_generate_messages_eus/fast:
 .PHONY : robot_controllers_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_py.dir/rule:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule
+.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-control_msgs_generate_messages_py: fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+robot_controllers_msgs_generate_messages_nodejs: fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : control_msgs_generate_messages_py
+.PHONY : robot_controllers_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-control_msgs_generate_messages_py/fast:
-	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_py.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/control_msgs_generate_messages_py.dir/build
-.PHONY : control_msgs_generate_messages_py/fast
+robot_controllers_msgs_generate_messages_nodejs/fast:
+	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_nodejs.dir/build
+.PHONY : robot_controllers_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_cpp.dir/rule:
@@ -421,6 +331,21 @@ robot_controllers_msgs_generate_messages_py: fetch_gazebo/fetch_gazebo/CMakeFile
 robot_controllers_msgs_generate_messages_py/fast:
 	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_py.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/robot_controllers_msgs_generate_messages_py.dir/build
 .PHONY : robot_controllers_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule:
+	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule
+.PHONY : fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule
+
+# Convenience name for target.
+fetch_gazebo_plugin: fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/rule
+
+.PHONY : fetch_gazebo_plugin
+
+# fast build rule for target.
+fetch_gazebo_plugin/fast:
+	cd /home/jackmccann/fetch_ws/build && $(MAKE) -f fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/build.make fetch_gazebo/fetch_gazebo/CMakeFiles/fetch_gazebo_plugin.dir/build
+.PHONY : fetch_gazebo_plugin/fast
 
 src/plugin.o: src/plugin.cpp.o
 
@@ -456,29 +381,24 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
 	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... control_toolbox_generate_messages_py"
+	@echo "... rebuild_cache"
 	@echo "... control_toolbox_generate_messages_eus"
 	@echo "... control_toolbox_generate_messages_nodejs"
 	@echo "... control_toolbox_gencfg"
 	@echo "... control_toolbox_generate_messages_lisp"
 	@echo "... control_toolbox_generate_messages_cpp"
 	@echo "... robot_controllers_msgs_generate_messages_lisp"
-	@echo "... control_msgs_generate_messages_cpp"
-	@echo "... install/local"
-	@echo "... control_msgs_generate_messages_eus"
-	@echo "... control_msgs_generate_messages_lisp"
-	@echo "... edit_cache"
-	@echo "... fetch_gazebo_plugin"
-	@echo "... control_msgs_generate_messages_nodejs"
-	@echo "... robot_controllers_msgs_generate_messages_nodejs"
 	@echo "... robot_controllers_msgs_generate_messages_eus"
-	@echo "... control_msgs_generate_messages_py"
+	@echo "... robot_controllers_msgs_generate_messages_nodejs"
 	@echo "... robot_controllers_msgs_generate_messages_cpp"
 	@echo "... robot_controllers_msgs_generate_messages_py"
+	@echo "... test"
+	@echo "... fetch_gazebo_plugin"
+	@echo "... edit_cache"
+	@echo "... list_install_components"
 	@echo "... src/plugin.o"
 	@echo "... src/plugin.i"
 	@echo "... src/plugin.s"

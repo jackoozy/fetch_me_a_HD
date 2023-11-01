@@ -1,0 +1,8 @@
+<launch>
+
+	<include file="$(find follow_path_pkg)/launch/simulation.launch"/>
+
+	<rosparam file="$(find aruco_nav_repo)/config/aruco_navigation.yaml" command="load" />
+</launch>
+
+

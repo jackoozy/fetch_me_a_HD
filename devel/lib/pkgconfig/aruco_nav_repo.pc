@@ -1,0 +1,8 @@
+prefix=/home/jackmccann/fetch_ws/devel
+
+Name: aruco_nav_repo
+Description: Description of aruco_nav_repo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
