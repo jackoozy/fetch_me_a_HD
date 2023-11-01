@@ -1,0 +1,6 @@
+Description:
+This codebase furnishes a simulation of a fetch robot following a marker guide. The primary ROS package is src/follow_path/follow_path_pkg, from which the simulations may be launched. The fetch robot uses open-source plugins to perceive the AR code on the mofified turtlebot with its head cameras and sensors, and based on its relative pose, will implement commands to ensure it maintains its relative pose.
+Contributions:
+Jack: 40%
+Sean: 30%
+Muhammad: 30%
